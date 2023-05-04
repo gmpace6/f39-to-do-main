@@ -4,10 +4,12 @@ let globalId = 3
 
 module.exports = {
     getTasks: (req, res) => {
+        console.log(tasks)
         res.status(200).send(tasks)
     },
 
     createTask: (req, res) => {
+        console.log('createTask')
 let {name, priority} = req.body
 
         if(!name || !priority) {
