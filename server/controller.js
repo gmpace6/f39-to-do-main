@@ -1,4 +1,4 @@
-let tasks = [{id: 1, name: 'Take out the trash', priority: 'Medium', status: false}, {id: 2, name: 'Make dinner', priority: 'High'}]
+let tasks = [{id: 1, name: 'Take out the trash', priority: 'Medium', status: false}, {id: 2, name: 'Make dinner', priority: 'High', status: false}]
 
 let globalId = 3
 
