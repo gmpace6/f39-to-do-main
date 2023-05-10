@@ -1,11 +1,25 @@
 let tasks = [{id: 1, name: 'Take out the trash', priority: 'Medium', status: false}, {id: 2, name: 'Make dinner', priority: 'High', status: false}]
 
+const Sequelize = require('sequelize')
+const {CONNECTION_STRING} = process.env
+
+const sequelize = new Sequelize(CONNECTION_STRING, {
+  dialect: 'postgres',
+  dialectOptions: {
+      ssl: {
+          rejectUnauthorized: false
+      }
+  }
+})
+
+
 let globalId = 3
 
 module.exports = {
     getTasks: (req, res) => {
-        console.log(tasks)
-        res.status(200).send(tasks)
+        sequelize.query('SELECT * FROM tasks;')
+        .then(dbRES = res.status(200).send(dbRes[0]))
+        .catch(err => console.log(err))
     },
 
     createTask: (req, res) => {
